@@ -22,7 +22,6 @@ export class HomePage implements OnInit {
     this.store.pipe(select(fromHomeSelectors.selectHomeText))
     .subscribe(text => {
       this.text = text;
-      console.log(text);
     });
 
   }

@@ -13,8 +13,8 @@ export const homeInitialState: HomeState = {
 
 const reducer = createReducer(
   homeInitialState,
-  on(fromHomeActions.changeText, (state, { text }) => ({
-    ...state,
+  on(fromHomeActions.changeText, (currentState, { text }) => ({
+    ...currentState,
     text,
   }))
 );
