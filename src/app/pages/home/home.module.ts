@@ -1,11 +1,17 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { StoreModule } from '@ngrx/store';
 
 import { HomePage } from './home.page';
+import { homeReducer } from './state/home.reducer';
 
 @NgModule({
   declarations: [HomePage],
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    StoreModule.forFeature('home', homeReducer),
+  ],
 })
 export class HomeModule {}
