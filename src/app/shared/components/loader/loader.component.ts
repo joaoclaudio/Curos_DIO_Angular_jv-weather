@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'jv-loader',
@@ -9,5 +9,4 @@ import { Component } from "@angular/core";
     </div>
   `,
 })
-export class LoaderComponent {
-}
+export class LoaderComponent {}
