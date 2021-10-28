@@ -27,6 +27,7 @@
     <!-- {{ (cityWeather$ | async).city.name }} -->
     <jv-current-weather
       [cityWeather]="cityWeather"
+      [isFavorite]="isCurrentFavorite$ | async"
       (toggleBookmark)="onToggleBookmark()"
     ></jv-current-weather>
   </div>

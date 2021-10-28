@@ -30,7 +30,10 @@ const reducer = createReducer(
     ...state,
     loading: false,
     error: true,
-  }))
+  })),
+  on(fromHomeActions.clearHomeState, (state) => (
+    homeInitialState
+  ))
 );
 
 export function homeReducer(
