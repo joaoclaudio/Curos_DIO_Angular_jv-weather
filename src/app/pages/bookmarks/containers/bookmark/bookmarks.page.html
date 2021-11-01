@@ -8,7 +8,7 @@
 
       <ul class="list-unstyled">
         <li *ngFor="let bookmark of bookmarks$ | async">
-          <a routerLink="../details">
+          <a [routerLink]="'../details'">
             {{ bookmark.name }}
           </a>
           <button class="btn btn-outline-dark btn-sm"
@@ -16,10 +16,6 @@
         </li>
       </ul>
 
-    </div>
-
-    <div>
-      <label>Adicionar cidade aos favoritos</label>
     </div>
 
   </div>

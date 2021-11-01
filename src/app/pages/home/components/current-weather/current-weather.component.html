@@ -7,7 +7,7 @@
     <div class="card-actions">
       <a class="card-link" (click)="onToggleBookmark()"> {{ isFavorite ? 'Remover dos favoritos' : 'Adicionar aos favoritos' }} </a>
 
-      <a class="card-link" routerLink="/details"> Ver detalhes </a>
+      <a class="card-link" [routerLink]="'/details'"> Ver detalhes </a>
     </div>
   </div>
 </div>

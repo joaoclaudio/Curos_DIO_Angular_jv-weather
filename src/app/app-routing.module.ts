@@ -4,14 +4,18 @@ import { RouterModule, Routes } from '@angular/router';
 import { BookmarksPage } from './pages/bookmarks/containers/bookmark/bookmarks.page';
 import { HomePage } from './pages/home/containers/home/home.page';
 
-
 const routes: Routes = [
   { path: '', component: HomePage },
   { path: 'bookmarks', component: BookmarksPage },
+  {
+    path: 'details',
+    loadChildren: () =>
+      import('./pages/details/details.module').then((m) => m.DetailsModule),
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
