@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { BookmarksModule } from './pages/bookmarks/bookmarks.module';
 import { HomeModule } from './pages/home/home.module';
 import { reducers } from './shared/state/app.reducer';
+import { CustomRouterSerializer } from './shared/state/router/router.reducer';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,10 +22,14 @@ import { reducers } from './shared/state/app.reducer';
     HttpClientModule,
     HomeModule,
     BookmarksModule,
-    StoreModule.forRoot( reducers ),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    StoreModule.forRoot(reducers),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production,
+    }),
     EffectsModule.forRoot([]),
-    StoreRouterConnectingModule.forRoot()
+    /* Recebe um Custom serializer para customizar o estado do router */
+    StoreRouterConnectingModule.forRoot({ serializer: CustomRouterSerializer }),
   ],
   providers: [],
   bootstrap: [AppComponent],

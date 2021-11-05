@@ -1,8 +1,8 @@
-import { NgModule } from "@angular/core";
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 
-import { LoaderComponent } from './loader/loader.component';
 import { DetailedWeatherComponent } from './detailed-weather/detailed-weather.component';
+import { LoaderComponent } from './loader/loader.component';
 
 @NgModule({
   imports: [

@@ -8,7 +8,6 @@ import * as fromHomeActions from './home.actions';
 
 @Injectable()
 export class HomeEffects {
-
   loadCurrentWeather$ = createEffect(() =>
     this.actions$.pipe(
       ofType(fromHomeActions.loadCurrentWeather),

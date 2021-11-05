@@ -3,8 +3,11 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { CityWeather } from '../models/weather.model';
-import { responseToCityWeather } from '../utils/response.utils';
+import { CityDailyWeather, CityWeather } from '../models/weather.model';
+import {
+  responseToCityDailyWeather,
+  responseToCityWeather,
+} from '../utils/response.utils';
 import { environment } from './../../../environments/environment.prod';
 
 @Injectable({
@@ -17,6 +20,31 @@ export class WeatherService {
     const params = new HttpParams({ fromObject: { q: query } });
     return this.doGet('weather', params).pipe(
       map((response) => responseToCityWeather(response))
+    );
+  }
+
+  getCityWeatherByCoord(lat: number, lon: number): Observable<CityWeather> {
+    const params = new HttpParams({
+      fromObject: {
+        lat: lat.toString(),
+        lon: lon.toString(),
+      },
+    });
+    return this.doGet<CityWeather>('weather', params).pipe(
+      map((response) => responseToCityWeather(response))
+    );
+  }
+
+  getCityWeatherDetails(lat: number, lon: number): Observable<CityDailyWeather> {
+    const params = new HttpParams({
+      fromObject: {
+        lat: lat.toString(),
+        lon: lon.toString(),
+        exclude: 'minutely,hourly',
+      },
+    });
+    return this.doGet<CityDailyWeather>('onecall', params).pipe(
+      map((response) => responseToCityDailyWeather(response))
     );
   }
 
